@@ -20,12 +20,18 @@ public class start extends JFrame implements ActionListener {
 		super("Skaner");
 		
 		menuBar = new JMenuBar(); 
-		mPlik = new JMenu("Plik"); mNarzedzia = new JMenu("MArzêdzia"); mPomoc = new JMenu("Pomoc");
-		
-		iNowy = new JMenuItem(); iZapisz = new JMenuItem(); iOtworz = new JMenuItem(); iZapiszJako = new JMenuItem(); iWyjscie = new JMenuItem();
-		iNowy = new JMenuItem();
+		mPlik = new JMenu("Plik"); mNarzedzia = new JMenu("Narzêdzia"); mPomoc = new JMenu("Pomoc");
+			iNowy = new JMenuItem("Nowy"); iNowy.addActionListener(this);
+			iZapisz = new JMenuItem("Zapisz"); iZapisz.addActionListener(this);
+			iOtworz = new JMenuItem("Otwórz"); iOtworz.addActionListener(this);
+			iZapiszJako = new JMenuItem("Zapisz jako ..."); iZapiszJako.addActionListener(this); 
+			iWyjscie = new JMenuItem("Wyjœcie"); iWyjscie.addActionListener(this);
+
+		mPlik.add(iNowy); mPlik.add(iOtworz); mPlik.add(iZapisz); mPlik.add(iZapiszJako); mPlik.add(iWyjscie);
 		textWindow = new JTextArea();
 		menuBar.add(mPlik);
+		menuBar.add(mNarzedzia);
+		menuBar.add(mPomoc);
 
 		setJMenuBar(menuBar);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,8 +44,10 @@ public class start extends JFrame implements ActionListener {
 		
 	}
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+		Object cel = e.getSource();
+		if(cel==iWyjscie) System.exit(0); else
+		if(cel==iNowy) {};
 		
 	}
 
